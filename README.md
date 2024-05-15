@@ -33,6 +33,18 @@ Be careful: you must point `qtc-other-files-helper.cmake` here.
 
 Finally, drop `qtc-other-files.cmake` (not a helper!) to the project directory and open it at the QtC. If project was opened before, try to reconfigure it with initial parameters.
 
+## Per-project configuration without any IDE impact
+
+Based on the https://www.qt.io/blog/qt-creator-cmake-package-manager-auto-setup.
+
+Just create file **QtCreatorPackageManager.cmake** with next content:
+```
+include(qtc-other-files.cmake)
+```
+
+and drop `qtc-other-files.cmake` to the project directory. After that just re-run CMake in the QtC.
+
+
 ## Create new CMake projects with qtc-other-files.cmake
 
 Good addition to the previous field. Drop `qtc-other-files.cmake` into `QTC_INSTALL_DIR/share/qtcreator/templates/wizards/projects/plaincpp` and/or `QTC_INSTALL_DIR/share/qtcreator/templates/wizards/projects/plaincpp` and modify `wizard.json` (in both locations): add into "generators" section something like:
